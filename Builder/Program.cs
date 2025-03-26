@@ -79,16 +79,7 @@ namespace Builder
         
         public string ListParts()
         {
-            string str = string.Empty;
-
-            for (int i = 0; i < this._parts.Count; i++)
-            {
-                str += this._parts[i] + ", ";
-            }
-
-            str = str.Remove(str.Length - 2); // удаление последнего ",c"
-
-            return "Части продукта: " + str + "\n";
+            return $"Части продукта: {string.Join(", ", this._parts)}\n";
         }
     }
     

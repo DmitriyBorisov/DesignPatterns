@@ -18,7 +18,7 @@ namespace FactoryMethod
             // Вызываем фабричный метод, чтобы получить объект-продукт.
             var product = FactoryMethod();
             // Далее, работаем с этим продуктом.
-            var result = "Creator: Тот же код создателя только что сработал c " + product.Operation();
+            var result = $"Creator: Тот же код создателя только что сработал c {product.Operation()}";
             return result;
         }
     }
@@ -54,7 +54,7 @@ namespace FactoryMethod
     {
         public string Operation()
         {
-            return "{Результат ConcreteProduct1}";
+            return "результатом ConcreteProduct1";
         }
     }
 
@@ -62,7 +62,7 @@ namespace FactoryMethod
     {
         public string Operation()
         {
-            return "{Результат ConcreteProduct2}";
+            return "результатом ConcreteProduct2";
         }
     }
 
@@ -73,7 +73,7 @@ namespace FactoryMethod
             Console.WriteLine("App: Запущено с помощью ConcreteCreator1");
             ClientCode(new ConcreteCreator1());
 
-            Console.WriteLine("");
+            Console.WriteLine();
 
             Console.WriteLine("App: Запущено с помощью ConcreteCreator2");
             ClientCode(new ConcreteCreator2());
@@ -83,7 +83,8 @@ namespace FactoryMethod
         // продолжает работать с создателем через базовый интерфейс, вы можете передать ему любой подкласс создателя.
         public void ClientCode(Creator creator)
         {
-            Console.WriteLine("Client: Я не знаю класс создателя, но он все еще работает\n" + creator.SomeOperation());
+            Console.WriteLine("Client: Я не знаю класс создателя, но он все еще работает");
+            Console.WriteLine(creator.SomeOperation());
         }
     }
 
